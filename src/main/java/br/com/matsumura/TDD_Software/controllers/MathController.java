@@ -10,4 +10,10 @@ public class MathController {
     public String teste(){
         return "Teste";
     }
+
+    @GetMapping("/sum")
+    public Integer soma(){
+        return 1+2;
+    }
+
 }
