@@ -1,16 +1,10 @@
 package br.com.matsumura.TDD_Software.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
 @Entity
 @Table(name = "person")
@@ -28,8 +22,41 @@ public class Person implements Serializable {
     @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
 
-
     @Column(name = "gender", nullable = false, length = 80)
     private String gender;
 
+    public Person() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }
