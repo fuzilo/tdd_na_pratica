@@ -42,6 +42,6 @@ public class PersonController {
 
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable(value = "id") Long id){
-        personService.findById(id).ifPresent(person -> personService.delete(person));
+         personService.delete(id);
     }
 }
