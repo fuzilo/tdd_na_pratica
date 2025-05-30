@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -17,6 +18,30 @@ public class PersonService {
         return personRepository.findAll();
     }
 
+    public Optional<Person> findById(Long id){
+        return personRepository.findById(id);
+    }
 
+    public Person create(Person person) {
+
+        return personRepository.save(person);
+    }
+
+    public Person update(Long id,Person person) {
+        Optional<Person> personOptional = personRepository.findById(id);
+        if (personOptional.isPresent()) {
+            Person personUpdate = personOptional.get();
+            personUpdate.setFirstName(person.getFirstName());
+            personUpdate.setLastName(person.getLastName());
+            personUpdate.setGender(person.getGender());
+            return personRepository.save(personUpdate);
+        } else {
+            return null;
+        }
+    }
+
+    public void delete(Person person) {
+        personRepository.delete(person);
+    }
 }
 

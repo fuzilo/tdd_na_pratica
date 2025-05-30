@@ -8,6 +8,9 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Entity
 @Table(name = "person")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person implements Serializable {
 
     private static final long generationType = 1L;
@@ -25,35 +28,32 @@ public class Person implements Serializable {
     @Column(name = "gender", nullable = false, length = 80)
     private String gender;
 
-    public Person() {
-    }
-
     public Long getId() {
         return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getGender() {
-        return gender;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
     }
 
     public void setGender(String gender) {
